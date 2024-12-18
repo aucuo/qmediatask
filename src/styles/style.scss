@@ -1,0 +1,65 @@
+@import "bootstrap";
+@import "utils";
+
+:root {
+    --bs-body-font-family: "Roboto Flex", serif;
+    --bs-body-font-size: 62.5%;
+    --bs-body-font-weight: 300;
+    --bs-body-line-height: auto;
+    --bs-body-color: #fff;
+    --bs-body-bg: #0a0a0a;
+
+    @include respond-to("md") {
+        --bs-body-font-size: 55%;
+    }
+
+    @include respond-to("sm") {
+        --bs-body-font-size: 50%;
+    }
+}
+
+html {
+    font-size: var(--bs-body-font-size);
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.005em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    font-variation-settings: 'GRAD' -200, 'XOPQ' 103, 'XTRA' 468, 'YOPQ' 79, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'YTLC' 514, 'YTUC' 712, 'slnt' 0, 'wdth' 145;
+    margin: 0;
+}
+
+p {
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin: 0;
+}
+
+a {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: auto;
+    font-variation-settings: 'GRAD' 0, 'XOPQ' 106, 'XTRA' 468, 'YOPQ' 79, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'YTLC' 514, 'YTUC' 712, 'slnt' 0, 'wdth' 145;
+    color: var(--bs-body-color);
+    transition: .1s;
+
+    &:hover {
+        opacity: .85;
+    }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}

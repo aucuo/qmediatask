@@ -1,0 +1,18 @@
+@mixin respond-to($breakpoint) {
+    // Установите заранее заданные точки остановки
+    $breakpoints: (
+        "sm": 576px,
+        "md": 768px,
+    );
+
+    // Получите значение точки остановки из списка
+    $point: map-get($breakpoints, $breakpoint);
+
+    @if $point {
+        @media (max-width: $point) {
+            @content;
+        }
+    } @else {
+        @warn "Нет заданного значения для точки остановки: #{$breakpoint}";
+    }
+}

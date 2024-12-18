@@ -1,0 +1,125 @@
+$container-max-widths: (
+    sm: 100%,
+    md: 760px,
+    lg: 760px,
+    xl: 760px,
+    xxl: 760px
+);
+
+$container-padding-x: 20px;
+$grid-gutter-width: 10px;
+$grid-gutter-height: 10px;
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/maps";
+
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+
+.row {
+    margin-top: calc(-1 * #{$grid-gutter-height} / 2);
+    margin-bottom: calc(-1 * #{$grid-gutter-height} / 2);
+
+    > * {
+        padding-top: calc(#{$grid-gutter-height} / 2);
+        padding-bottom: calc(#{$grid-gutter-height} / 2);
+    }
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+    --bs-btn-padding-x: 2.4rem;
+    --bs-btn-padding-y: 1rem;
+    --bs-btn-font-size: 1.6rem;
+    --bs-btn-font-weight: 500;
+    --bs-border-radius: 12px;
+
+    &-primary {
+        --bs-btn-color: #0A0A0A;
+        --bs-btn-bg: #EDEDED;
+        --bs-btn-border-color: none;
+        --bs-btn-hover-color: var(--bs-btn-color);
+        --bs-btn-hover-bg: rgba(237, 237, 237, 0.9);
+        --bs-btn-hover-border-color: var(--bs-btn-border-color);
+        --bs-btn-focus-shadow-rgb: none;
+        --bs-btn-active-color: #0A0A0A;
+        --bs-btn-active-bg: rgba(237, 237, 237, 0.8);
+        --bs-btn-active-border-color: none;
+        --bs-btn-active-shadow: none;
+        --bs-btn-disabled-color: var(--bs-btn-color);
+        --bs-btn-disabled-bg: #dfdede;
+        --bs-btn-disabled-border-color: none;
+        transition: .05s all ease-in-out;
+
+        &:active {
+            scale: 1.03;
+        }
+    }
+}
+
+.form {
+    @mixin text-styles {
+        font-size: 1.6rem;
+        font-weight: 300;
+        letter-spacing: 0.03em;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+        &::placeholder {
+            color: #949494;
+        }
+    }
+
+    @mixin bg-styles {
+        padding: 1.2rem 2.4rem;
+        background-color: #1A1A1A;
+        border: none;
+        border-radius: 12px;
+
+        &:focus {
+            background-color: #1A1A1A;
+            border-color: unset;
+            box-shadow: none;
+        }
+    }
+
+    label {
+        @include text-styles;
+    }
+
+    &-control {
+        @include text-styles;
+        @include bg-styles;
+
+        color: #fff;
+    }
+
+    &-select {
+        @include text-styles;
+        @include bg-styles;
+
+        &:invalid {
+            color: #949494;
+        }
+
+        option {
+            color: #fff;
+        }
+    }
+}
