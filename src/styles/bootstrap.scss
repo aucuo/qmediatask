@@ -23,6 +23,7 @@ $grid-gutter-height: 10px;
 @import "../../node_modules/bootstrap/scss/containers";
 @import "../../node_modules/bootstrap/scss/forms";
 @import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/transitions";
 
 .row {
     margin-top: calc(-1 * #{$grid-gutter-height} / 2);
@@ -67,7 +68,7 @@ $grid-gutter-height: 10px;
         transition: .05s all ease-in-out;
 
         &:active {
-            scale: 1.03;
+            scale: .97;
         }
     }
 }
@@ -80,6 +81,8 @@ $grid-gutter-height: 10px;
         text-align: left;
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
+        background-image: none !important;
+        color: #fff;
 
         &::placeholder {
             color: #949494;
@@ -91,11 +94,23 @@ $grid-gutter-height: 10px;
         background-color: #1A1A1A;
         border: none;
         border-radius: 12px;
+        box-shadow: none !important;
+        transition: all .08s ease-in-out;
 
         &:focus {
             background-color: #1A1A1A;
             border-color: unset;
             box-shadow: none;
+
+            & ~ .invalid-tooltip{
+                right: -100%;
+                background-color: #1A1A1A;
+                border-radius: 12px 12px 0 0;
+                font-size: 1.6rem;
+                padding: .5rem 1.8rem;
+                color: #515151;
+                opacity: 0;
+            }
         }
     }
 
@@ -106,8 +121,6 @@ $grid-gutter-height: 10px;
     &-control {
         @include text-styles;
         @include bg-styles;
-
-        color: #fff;
     }
 
     &-select {
@@ -122,4 +135,16 @@ $grid-gutter-height: 10px;
             color: #fff;
         }
     }
+}
+
+.invalid-tooltip {
+    top: 50%;
+    right: 1.2rem;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    padding: .5rem 1.2rem;
+    border-radius: 8px;
+    background-color: #8e6767;
+    margin: 0;
+    transition: all .3s ease-in-out;
 }
