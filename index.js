@@ -9,7 +9,9 @@ const app = express();
 
 // Настройка CORS
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://aucuo.github.io",
+    methods: ["GET", "POST", "PUT", "DELETE"], // Укажите разрешенные методы
+    credentials: true, // Если нужны куки и авторизация
 }));
 
 app.use(express.json());
