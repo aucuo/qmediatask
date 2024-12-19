@@ -1,7 +1,7 @@
 export const sendEmail =
     async (email: string, name: string, workshop: string): Promise<{ success: boolean; message?: string }> => {
     try {
-        const response = await fetch("http://localhost:3000/api/send-email", {
+        const response = await fetch("https://qmediatask-api.onrender.com/api/send-email", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
