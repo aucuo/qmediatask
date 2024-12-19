@@ -32,14 +32,18 @@ function WorkshopForm() {
         try {
             // Отправка данных формы на сервер
             const formData = new FormData(form);
-            const email = formData.get("email"); // Поле email
-            const response = await sendEmail(email as string);
+            const email = formData.get("email")?.toString() || "";
+            const name = formData.get("name")?.toString() || "";
+            const workshop = formData.get("workshop")?.toString() || "";
+            const response = await sendEmail(email, name, workshop);
 
             if (response.success) {
                 // Показываем успех
                 setSuccess(true);
             } else {
                 // Обрабатываем ошибку сервера
+                setSuccess(false);
+
                 console.error(response.message || "Ошибка отправки");
             }
         } catch (error) {
@@ -54,12 +58,14 @@ function WorkshopForm() {
         <>
             <Collapse in={!success}>
                 <div className="workshop-form">
-                    <WorkshopInfo />
+                    <span className="workshop-form__author">Made by <a href="https://github.com/aucuo" target="_blank">Jahor Šykaviec</a></span>
+                    <WorkshopInfo/>
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         <WorkshopFields/>
                         <div className="workshop-form__bottom">
                             <p className="workshop-form__bottom-text">
-                                Все поля обязательны для заполнения. Отправляя заявку, вы соглашаетесь с договором публичной оферты и политикой обработки данных.
+                                Все поля обязательны для заполнения. Отправляя заявку, вы соглашаетесь с договором
+                                публичной оферты и политикой обработки данных.
                             </p>
                             <Button
                                 variant="primary"
@@ -74,8 +80,8 @@ function WorkshopForm() {
                 </div>
             </Collapse>
             <Collapse in={success}>
-                <div>
-                    <WorkshopSuccess />
+            <div>
+                    <WorkshopSuccess/>
                 </div>
             </Collapse>
         </>

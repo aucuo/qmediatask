@@ -1,11 +1,12 @@
-export const sendEmail = async (email: string): Promise<{ success: boolean; message?: string }> => {
+export const sendEmail =
+    async (email: string, name: string, workshop: string): Promise<{ success: boolean; message?: string }> => {
     try {
-        const response = await fetch("/api/send-email", {
+        const response = await fetch("http://localhost:3000/api/send-email", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email }),
+            body: JSON.stringify({ email, name, workshop }),
         });
 
         if (!response.ok) {

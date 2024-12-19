@@ -1,7 +1,24 @@
 .workshop-form {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 4rem;
+
+    &__author {
+        z-index: 2;
+        position: absolute;
+        top: -10px;
+        transform: translateY(-100%);
+        left: 0;
+        font-size: 1.8rem;
+        font-weight: 600;
+        font-variation-settings: 'GRAD' 0, 'XOPQ' 106, 'XTRA' 468, 'YOPQ' 79, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'YTLC' 514, 'YTUC' 712, 'slnt' 0, 'wdth' 145;
+        color: #5A5A5A;
+
+        a {
+            color: #5A5A5A;
+        }
+    }
 
     form {
         max-height: 500px;
